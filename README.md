@@ -29,7 +29,7 @@ to be done:
 - Login to the management web page of ZTE AP (by
 default 192.168.5.1). On the bottom of the main page,
 record the sequence number.
-- Send an email to the author [(Email)](zs.wang.prc@gmail.com) and attach
+- Send an email to the author or contributor of this project [(Email)](zs.wang.prc@gmail.com) and attach
 the sequence number.
 - Users will receive confirmation from the author and your
 device will be ready for the experimental test.
