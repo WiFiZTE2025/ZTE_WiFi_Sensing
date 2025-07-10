@@ -38,4 +38,18 @@ to the management web page. On the system - upgrade,
 click ”request update” bottom. Your ZTE AP will download the experimental firmware and reboot.
 - Use ZTECSITool PC software to collection CSI Information.
 
+### FAQ
+
+**Why no csi come out after commands have been sent?**
+
+The answer to this question varies:
+
+- First, only AP recevies packets, AP can generate CSI and report. So make sure some STA is sending PPDU to your AP (or send to somewhere else through your AP)
+
+- Please double check if the configured MAC is the same the MAC of STA who is sending CSI. Some mobile phone may change MAC address every time it connect to the AP. Don't trust your memory.
+
+- Set enable to 0 and then set enable to 1. 
+
+- leave an issue to this repo
+
 
