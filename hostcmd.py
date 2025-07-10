@@ -40,7 +40,7 @@ class Command:
     def send_csi_config_command(self, csi_frame_type, chain_num, chain_idx):
         ip = self.app.get_current_ip()
         cmd_type = 3
-        for val in (cai_frame_type, chain_num, chain_idx):
+        for val in (csi_frame_type, chain_num, chain_idx):
             if not (0 <= val <= 255):
                 raise ValueError("Each input must be in 0-255")
         

@@ -41,7 +41,7 @@ class Statistic:
                 metric['recent'].append((now, value))
 
             cutoff = now - 5
-            with metric['recent'] and metric['recent'][0][0] < cutoff:
+            while metric['recent'] and metric['recent'][0][0] < cutoff:
                 metric['recent'].popleft()
 
     def report(self, name):

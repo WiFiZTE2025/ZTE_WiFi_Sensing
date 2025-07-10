@@ -87,7 +87,7 @@ class CSVCsiWriter:
     
 def parse_csi_data(data):
     try:
-        magic_num = struct.upack_from('<I', data)[0]
+        magic_num = struct.unpack_from('<I', data)[0]
         magic_high = (magic_num >> 16) & 0xFFFF
         packet_sn = magic_num & 0xFFFF
 

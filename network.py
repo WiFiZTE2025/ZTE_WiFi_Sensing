@@ -74,6 +74,7 @@ def udp_ok_listener(ip, app):
     except KeyboardInterrupt:
         print("\n Stopped by user")
     except Exception as e:
+        print('udp_ok_listener')
         print(f"Error:{str(e)}")
     finally:
         sock.close()
@@ -85,29 +86,30 @@ def udp_listener(ip, port, app):
     report_cnt = 0
     last_time = time.time()
 
-    try:
-        sock.bind((ip, port))
-        print(f"Listening on {ip}:{port}...")
+    # try:
+    sock.bind((ip, port))
+    print(f"Listening on {ip}:{port}...")
 
-        while True:
-            data, addr = sock.recvfrom(8192)
-            report = parse_csi_data(data)
-            if report:
-                app.update_csi_result(report['csi_i'], report['csi_q'])
-                if app.is_csi_plot_updating == False:
-                    threading.Thread(target=app.update_plot, daemon=True).start()
-                app.update_statistic(report)
-                csv_writer.write(report)
-                recv_cnt += 1
-                report_cnt += 1
-            current_time = time.time()
-            if current_time - last_time >= 1.0:
-                app.update_report_rate(report_cnt)
-                report_cnt = 0
-                last_time = current_time
-    except KeyboardInterrupt:
-        print("\n Stopped by user")
-    except Exception as e:
-        print(f"Error:{str(e)}")
-    finally:
-        sock.close()
+    while True:
+        data, addr = sock.recvfrom(8192)
+        report = parse_csi_data(data)
+        if report:
+            app.update_csi_result(report['csi_i'], report['csi_q'])
+            if app.is_csi_plot_updating == False:
+                threading.Thread(target=app.update_plot, daemon=True).start()
+            app.update_statistic(report)
+            csv_writer.write(report)
+            recv_cnt += 1
+            report_cnt += 1
+        current_time = time.time()
+        if current_time - last_time >= 1.0:
+            app.update_report_rate(report_cnt)
+            report_cnt = 0
+            last_time = current_time
+    # except KeyboardInterrupt:
+    #     print("\n Stopped by user")
+    # except Exception as e:
+    #     print('udp_listener')
+    #     print(f"Error:{str(e)}")
+    # finally:
+    #     sock.close()
