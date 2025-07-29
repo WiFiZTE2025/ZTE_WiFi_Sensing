@@ -52,4 +52,16 @@ The answer to this question varies:
 
 - leave an issue to this repo
 
+## Extract Details on CSI format
+
+Our arxiv paper may not cover all details of the CSI format. Here we present some frequently asked question over here. 
+
+### Multi-Chain Support
+
+AX3000 extracts CSI from all chains (6 chains at most for 5G, 4 chains at most for 2.4G). Each CSI has a packet SN. If two CSI has identical packet SN, which means it belongs to the same PPDU with different Chain. 
+
+The order to the chain is as follow: H11 H12 H13 H21 H22 H23 H31 H32 H33.
+
+Note that, the number of chains depends on the NSS of the received PPDU. This means that AP don't have control on that. If STA is sending using NSS=1, then only H11 is extracted. 
+
 
