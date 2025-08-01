@@ -213,7 +213,7 @@ class ZTECsiTool:
         self.stat_widget['bw_header_5s'] = tk.Label(self.stat_widget['bw_frame'], text='Last 5s', width=15)
         self.stat_widget['bw_header_5s'].grid(row=tmp_row_cnt, column=2, sticky='w')
         tmp_row_cnt += 1
-        for bw in ['20M', '40M', '80M', '160M']:
+        for bw in ['20MHz', '40MHz', '80MHz', '160MHz']:
             self.stat_widget['bw_' + bw + '_label'] = tk.Label(self.stat_widget['bw_frame'], text=bw, width=15)
             self.stat_widget['bw_' + bw + '_label'].grid(row=tmp_row_cnt, column=0, sticky='w')
             self.stat_widget['bw_' + bw + '_tot_value'] = tk.Label(self.stat_widget['bw_frame'], text='0', width=15)
@@ -297,10 +297,10 @@ class ZTECsiTool:
         for bw in bw_rpt['last_5s'].keys():
             self.stat_widget['bw_' + bw + '_5s_value'].config(text=str(bw_rpt['last_5s'][bw]))
         mcs_rpt = self.stat.report('mcs')
-        for mcs in bw_rpt['all_time'].keys():
-            self.stat_widget['mcs_' + bw + '_tot_value'].config(text=str(mcs_rpt['all_time'][bw]))
-        for mcs in bw_rpt['last_5s'].keys():
-            self.stat_widget['mcs_' + bw + '_5s_value'].config(text=str(mcs_rpt['last_5s'][bw]))
+        for mcs in mcs_rpt['all_time'].keys():
+            self.stat_widget['mcs_' + str(mcs) + '_tot_value'].config(text=str(mcs_rpt['all_time'][mcs]))
+        for mcs in mcs_rpt['last_5s'].keys():
+            self.stat_widget['mcs_' + str(mcs) + '_5s_value'].config(text=str(mcs_rpt['last_5s'][mcs]))
         
     def update_statistic(self, report):
         self.stat.record('bw', report['bandwidth'])

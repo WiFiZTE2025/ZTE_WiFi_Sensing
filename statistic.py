@@ -63,14 +63,14 @@ class Statistic:
                     'min': float(data_all.min()) if data_all.size else None,
                     'max': float(data_all.max()) if data_all.size else None,
                     'mean': float(data_all.mean()) if data_all.size else None,
-                    'hist': np.histogram(data_all, bins=metric['bins'], range=metric['range'])[0].to_list() if data_all.size else []
+                    'hist': np.histogram(data_all, bins=metric['bins'], range=metric['range'])[0].tolist() if data_all.size else []
                 }
 
                 result['last_5s'] = {
                     'min': float(data_recent.min()) if data_recent.size else None,
                     'max': float(data_recent.max()) if data_recent.size else None,
                     'mean': float(data_recent.mean()) if data_recent.size else None,
-                    'hist': np.histogram(data_recent, bins=metric['bins'], range=metric['range'])[0].to_list() if data_recent.size else []
+                    'hist': np.histogram(data_recent, bins=metric['bins'], range=metric['range'])[0].tolist() if data_recent.size else []
                 }
             return result
     def reset(self, name=None):
