@@ -62,7 +62,7 @@ AX3000 extracts CSI from all chains (6 chains at most for 5G, 4 chains at most f
 
 The order to the chain is as follow: 
 
-For 3x2: H11 H12 H13 H21 H22 H23 H31 H32 H33. Three Rx antenna and 2 Tx antenna. Total 2 NSS
+For 3x2: H11 H12 H13 H21 H22 H23. Three Rx antenna and 2 Tx antenna. Total 2 NSS
 
 For 3x1: H11 H12 H13
 
@@ -71,7 +71,6 @@ For 2x2: H11 H12 H21 H22
 For 2x1: H11 H12
 
 For 1x1: H11
-
 
 Note that, the number of chains depends on the NSS of the received PPDU. This means that AP don't have control on that. If STA is sending using NSS=1, then only H11 is extracted. 
 
