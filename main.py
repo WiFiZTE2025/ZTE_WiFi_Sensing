@@ -300,7 +300,7 @@ class ZTECsiTool:
         for mcs in mcs_rpt['all_time'].keys():
             self.stat_widget['mcs_' + str(mcs) + '_tot_value'].config(text=str(mcs_rpt['all_time'][mcs]))
         for mcs in mcs_rpt['last_5s'].keys():
-            self.stat_widget['mcs_' + str(mcs) + '_5s_value'].config(text=str(mcs_rpt['last_5s'][mcs]))
+            self.stat_widget['mcs_' + str(mcs) + '_5slabel'].config(text=str(mcs_rpt['last_5s'][mcs]))
         
     def update_statistic(self, report):
         self.stat.record('bw', report['bandwidth'])

@@ -115,8 +115,10 @@ def parse_csi_data(data):
         fmt += '16B'
         fmt += 'H'
         fmt += '7B'
-        fmt += 'Q'
+        fmt += 'I'
         fmt += 'H'
+        fmt += 'I'
+        fmt += 'I'
         fmt += '512i'
         fmt += '512i'
 
@@ -148,8 +150,8 @@ def parse_csi_data(data):
         result['sgi'] = unpacked[71]
 
         result['csi_cnt'] = unpacked[73]
-        result['csi_i'] = unpacked[74:74+512]
-        result['csi_q'] = unpacked[74+512:74+1024]
+        result['csi_i'] = unpacked[76:76+512]
+        result['csi_q'] = unpacked[76+512:76+1024]
 
         return result
     
