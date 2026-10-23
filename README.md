@@ -12,8 +12,7 @@ The details of manual can be obtained from SDP competition platform or arxiv pre
 ## Before using GUI in this project
 
 ### Supported devices
-- AX3000 (3C Type E2631) [AX3000 Product Link](https://item.jd.com/100022746195.html)
-
+- Sadly AX3000 will no longer support online update (since 20261023). For existing devices, you may contact the author for help. 
 - AX3000 Pro (3C Type ZXSLC SR6110) [AX3000 Pro Product Link](https://item.jd.com/100071901001.html)
 
 - More will come.
